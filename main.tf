@@ -3,8 +3,8 @@ data "template_file" "gpu_instance_bootstrap" {
 }
 
 resource "aws_security_group" "allow_8888" {
-  name = "allow_internal_8888"
-  description = "Allow ingress for Jupyter"
+  name_prefix = "allow_8888_"
+  description = "Managed by Terraform - allow ingress for Jupyter"
   ingress {
     from_port = "8888"
     to_port   = "8888"
