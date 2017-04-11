@@ -1,0 +1,7 @@
+#cloud-config
+
+package_update: true
+
+runcmd:
+  - "rm /home/ubuntu/.bash_history"
+  - "su ubuntu -l -c 'setsid /home/ubuntu/anaconda2/bin/jupyter notebook --no-browser --notebook-dir /home/ubuntu/nbs --ip 0.0.0.0 &'"
