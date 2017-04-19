@@ -2,9 +2,9 @@
 
 This terraform script creates a p2.xlarge instance in AWS and allows you to connect to a Jupyter notebook running on the server. I've tried to make it generic but I've only tested on our own AWS setup so may need some tweaking. Improvements welcome :)
 
-I used the details from fast.ai's [course](http://course.fast.ai/lessons/aws.html) and [github](https://github.com/fastai/courses/tree/master/setup)
+You can choose either the [fast.ai AMI](http://fast.ai) or the [AWS Ubuntu deep learning AMI](https://aws.amazon.com/marketplace/pp/B06VSPXKDX)
 
-You may need to contact Amazon to get authorisation to run p2 instances, see the fast.ai setup instructions for more details.
+You may need to contact Amazon to get authorisation to run p2 instances, see the [fast.ai setup instructions](http://course.fast.ai/lessons/aws.html) for more details.
 
 ## Dependencies
 
@@ -13,6 +13,10 @@ You may need to contact Amazon to get authorisation to run p2 instances, see the
 
 These can be installed with brew on Mac
 
+## Setup
+
+- terraform get <./fast_ai and/or ./aws_deeplearning>
+
 ## Instructions
 
 ### With bastion host
@@ -20,7 +24,7 @@ These can be installed with brew on Mac
   - bastion_host: host / ip of bastion host to jump through
   - allowed_cidr: cidr block of your vpc, e.g. 10.0.0.0/16 
 
-2. Run terraform apply
+2. Run terraform apply <./fast_ai or ./aws_deeplearning>
 
 3. Run ./connect_notebook.sh
   - The Notebook process can take quite a while to start, you may need to wait a minute
@@ -42,5 +46,5 @@ These can be installed with brew on Mac
 ## Destroy
 The p2.xlarge currently costs ~$1 per hour. 
 
-1. terraform destroy
+1. terraform destroy <./fast_ai or ./aws_deeplearning>
   - Answer yes / use --force flag
