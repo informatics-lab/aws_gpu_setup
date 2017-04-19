@@ -1,0 +1,8 @@
+#cloud-config
+
+# Amazon ubuntu machine learning ami
+
+package_update: true
+
+runcmd:
+  - "su ubuntu -l -c 'setsid /usr/local/bin/jupyter notebook --NotebookApp.password=dl_course --no-browser --notebook-dir /home/ubuntu --ip 0.0.0.0 &'"

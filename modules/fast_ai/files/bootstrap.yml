@@ -1,5 +1,6 @@
 #cloud-config
 
+# fast.ai ami bootstrap 
 package_update: true
 
 runcmd:

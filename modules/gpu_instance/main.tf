@@ -1,7 +1,3 @@
-data "template_file" "gpu_instance_bootstrap" {
-  template = "${file("./bootstrap.yml")}"
-}
-
 resource "aws_security_group" "allow_8888" {
   name_prefix = "allow_8888_"
   description = "Managed by Terraform - allow ingress for Jupyter"
@@ -14,25 +10,13 @@ resource "aws_security_group" "allow_8888" {
 }
 
 resource "aws_instance" "gpu_instance" {
-  ami = "${lookup(var.amis, var.region)}"
+  ami = "${var.ami}"
   instance_type = "p2.xlarge"
   security_groups = ["default", "${aws_security_group.allow_8888.name}"]
   key_name = "gateway"
-  user_data = "${data.template_file.gpu_instance_bootstrap.rendered}"
+  user_data = "${var.user_data}"
   tags {
     Name = "gpu_instance"
   }
-}
-
-output "public_ip" {
-  value = "${aws_instance.gpu_instance.public_ip}"
-}
-
-output "private_ip" {
-  value = "${aws_instance.gpu_instance.private_ip}"
-}
-
-output "bastion_host" {
-  value = "${var.bastion_host}"
 }
 
