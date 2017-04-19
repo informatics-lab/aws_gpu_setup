@@ -17,3 +17,6 @@ output "private_ip" {
   value = "${module.gpu_instance.private_ip}"
 }
 
+output "bastion_host" {
+  value = "${var.bastion_host}"
+}
