@@ -5,4 +5,4 @@ package_update: true
 
 runcmd:
   - "rm /home/ubuntu/.bash_history"
-  - "su ubuntu -l -c 'setsid /home/ubuntu/anaconda2/bin/jupyter notebook --no-browser --notebook-dir /home/ubuntu/nbs --ip 0.0.0.0 &'"
+  - "su ubuntu -l -c 'export PATH=\"/home/ubuntu/anaconda2/bin:$PATH\" && export PATH=\"/usr/local/cuda/bin:$PATH\" && setsid /home/ubuntu/anaconda2/bin/jupyter notebook --no-browser --notebook-dir /home/ubuntu/nbs --ip 0.0.0.0 &'"
