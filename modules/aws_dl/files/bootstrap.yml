@@ -5,4 +5,4 @@
 package_update: true
 
 runcmd:
-  - "su ubuntu -l -c 'setsid /usr/local/bin/jupyter notebook --NotebookApp.token=dl_course --no-browser --notebook-dir /home/ubuntu --ip 0.0.0.0 &'"
+  - "su ubuntu -l -c 'source activate python3 && setsid jupyter notebook --NotebookApp.token=dl_course --no-browser --notebook-dir /home/ubuntu --ip 0.0.0.0 &'"
