@@ -15,7 +15,7 @@ These can be installed with brew on Mac
 
 ## Setup
 
-- terraform get <./fast_ai and/or ./aws_deeplearning>
+- terraform init <./fast_ai and/or ./aws_deeplearning>
 
 ## Instructions
 
@@ -24,7 +24,7 @@ These can be installed with brew on Mac
   - bastion_host: host / ip of bastion host to jump through
   - allowed_cidr: cidr block of your vpc, e.g. 10.0.0.0/16 
 
-2. Run terraform apply <./fast_ai or ./aws_deeplearning>
+2. Optionally run terraform plan <./fast_ai or ./aws_deeplearning> to check the infrastructure that will be created. Run terraform apply <./fast_ai or ./aws_deeplearning>
 
 3. Run ./connect_notebook.sh
   - The Notebook process can take quite a while to start, you may need to wait a minute
@@ -32,12 +32,10 @@ These can be installed with brew on Mac
 
 ### Without bastion host
 
-(I haven't actually tested this but in theory...)
-
 1. Define variables in terraform.tfvars
-  - allowed_cidr: your public ip address, e.g. xxx.xxx.x.xx/32
+  - allowed_cidr: your public ip address, e.g. "xxx.xxx.x.xx/32"
 
-2. Run terraform apply
+2. Optionally run terraform plan <./fast_ai or ./aws_deeplearning> to check the infrastructure that will be created. Run terraform apply <./fast_ai or ./aws_deeplearning>
 
 3. Directly connect to <instance_public_ip>:8888
   - The Notebook process can take quite a while to start, you may need to wait a minute
