@@ -6,6 +6,7 @@ module "gpu_instance" {
   source = "../modules/gpu_instance"
   allowed_cidr = "${var.allowed_cidr}"
   ami = "${module.fast_ai.ami}"
+  key_name = "${var.key_name}"
   user_data = "${module.fast_ai.user_data}"
 }
 

@@ -5,6 +5,7 @@ module "aws_dl" {
 module "gpu_instance" {
   source = "../modules/gpu_instance"
   allowed_cidr = "${var.allowed_cidr}"
+  key_name = "${var.key_name}"
   ami = "${module.aws_dl.ami}"
   user_data = "${module.aws_dl.user_data}"
 }

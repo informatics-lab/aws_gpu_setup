@@ -13,7 +13,7 @@ resource "aws_instance" "gpu_instance" {
   ami = "${var.ami}"
   instance_type = "p2.xlarge"
   security_groups = ["default", "${aws_security_group.allow_8888.name}"]
-  key_name = "gateway"
+  key_name = "${var.key_name}"
   user_data = "${var.user_data}"
   tags {
     Name = "gpu_instance"
